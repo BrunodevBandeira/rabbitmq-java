@@ -1,7 +1,7 @@
 package com.rabbitmq.rabbitmq.utils;
 
-public class QueueUtils {
+public interface QueueUtils {
 
-    public static String EXCHANGE_NAME = "amq-direct";
-    public static String QUEUE_NAME = "shop_order";
+    public  String EXCHANGE_NAME = "amq-direct";
+    public   String QUEUE_NAME = "shop_order";
 }
