@@ -25,7 +25,7 @@ public class ShopOrderService {
     private ModelMapper mapper;
 
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private RabbitTemplate rabbitTemplate; // RabbitTemplate é uma classe do Spring AMQP que fornece uma API de alto nível para a interação com o RabbitMQ. Ele simplifica a produção e consumo de mensagens em filas, trocas (exchanges) e roteamento.
 
     public void create(ShopOrderDTO orderDTO) {
         ShopOrder shopOrder = mapper.map(orderDTO, ShopOrder.class);

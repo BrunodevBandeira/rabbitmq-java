@@ -17,7 +17,7 @@ import jakarta.annotation.PostConstruct;
 public class MQConfig {
 
     @Autowired
-    private AmqpAdmin amqpAdmin; //le todas as configurações de user 
+    private AmqpAdmin amqpAdmin; // AmqpAdmin é uma interface no Spring AMQP que fornece métodos para administração de recursos no broker do RabbitMQ, como filas, trocas, ligações (bindings) e configurações relacionadas.
     
     private Queue queue(String queueName) {
         // cria a fila
