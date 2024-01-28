@@ -1,5 +1,6 @@
 <h1 align="center">
-  API de produtos com RabbitMQ
+  API de produtos com RabbitMQ   <br /> <img align="center" alt="Java" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-plain.svg" />
+  <img align="center" alt="Docker" height="50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg" />
 </h1>
 
 ## Tecnologias
