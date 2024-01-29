@@ -8,6 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * Classe espelho da tabela ShopOrder do banco testdb
+ * 
+ * @author Bruno Bandeira
+ * @since 1.0
+ *
+ */
+
 @Entity
 @Table(name = "shop_order")
 @Data

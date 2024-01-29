@@ -27,6 +27,16 @@ public class ShopOrderService {
     @Autowired
     private RabbitTemplate rabbitTemplate; // RabbitTemplate é uma classe do Spring AMQP que fornece uma API de alto nível para a interação com o RabbitMQ. Ele simplifica a produção e consumo de mensagens em filas, trocas (exchanges) e roteamento.
 
+    /**
+	 * Método é responsável por criar um novo pedido de loja.
+	 * 
+	 * @param ShopOrderDTO
+	 * @return Ele recebe um objeto ShopOrderDTO que representa os dados do pedido a ser criado.
+ 	 * @since 1.0
+	 * @author Bruno Bandeira
+	 * 
+	 */
+
     public void create(ShopOrderDTO orderDTO) {
         ShopOrder shopOrder = mapper.map(orderDTO, ShopOrder.class);
         repository.save(shopOrder);
@@ -35,11 +45,31 @@ public class ShopOrderService {
 
     }
 
+    /**
+	 * Este método retorna todos os pedidos de loja paginados
+	 * 
+	 * @param Pageable
+	 * @return Utiliza o ShopOrderRepository para buscar os pedidos no banco de dados
+ 	 * @since 1.0
+	 * @author Bruno Bandeira
+	 * 
+	 */
     public Page<ShopOrderDTO> getAll(Pageable pageable) {
         return repository.findAll(pageable)
                         .map(objShorOrder -> mapper
                         .map(objShorOrder, ShopOrderDTO.class));
     }
+
+    
+    /**
+	 * É um ouvinte de mensagens da fila(QueueUtils.QUEUE_NAME)
+	 * 
+	 * @param QUEUE_NAME
+	 * @return Quando uma mensagem é recebida na fila, este método é chamado automaticamente.
+ 	 * @since 1.0
+	 * @author Bruno Bandeira
+	 * 
+	 */
 
     @RabbitListener(queues =  QueueUtils.QUEUE_NAME)
     public void subscribe(Long id) {
